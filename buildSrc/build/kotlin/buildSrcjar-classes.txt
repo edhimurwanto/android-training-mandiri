@@ -1,0 +1,1 @@
+/home/edhi-uchiha/Enigma/Mandiri/Android/Trainer/kts/buildSrc/build/classes/kotlin/main/AppConfig.class:/home/edhi-uchiha/Enigma/Mandiri/Android/Trainer/kts/buildSrc/build/classes/kotlin/main/AppDependencies.class:/home/edhi-uchiha/Enigma/Mandiri/Android/Trainer/kts/buildSrc/build/classes/kotlin/main/Versions.class
