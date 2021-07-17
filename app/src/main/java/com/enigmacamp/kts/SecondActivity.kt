@@ -4,30 +4,25 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_second.*
+import kotlinx.android.synthetic.main.activity_second.btnBack
+import kotlinx.android.synthetic.main.activity_third.*
 
-class MainActivity : AppCompatActivity() {
+class SecondActivity : AppCompatActivity() {
 
-    val TAG = MainActivity::class.java.simpleName
+    val TAG = SecondActivity::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        Log.d(TAG, "onCreate()")
+        setContentView(R.layout.activity_second)
 
-        tvTitle.text = "This is Main Activity"
-
-        showBtn.setOnClickListener {
-            showName()
+        btnGotoThirdActivity.setOnClickListener {
+            startActivity(Intent(this, ThirdActivity::class.java))
         }
 
-        btnGoToSecondActivity.setOnClickListener {
-            startActivity(Intent(this, SecondActivity::class.java))
+        btnBack.setOnClickListener {
+            finish()
         }
-    }
-
-    fun showName(){
-        name.text = editTextName.text
     }
 
     override fun onStart() {
@@ -60,5 +55,4 @@ class MainActivity : AppCompatActivity() {
         super.onDestroy()
         Log.d(TAG, "onDestroy()")
     }
-
 }
