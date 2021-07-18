@@ -13,6 +13,14 @@ class ThirdActivity : AppCompatActivity() {
         btnBack.setOnClickListener {
            finish()
         }
+
+        btnSendMessage.setOnClickListener {
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT, "Welcome to Message Screen")
+            intent.type = "text/plain"
+            startActivity(Intent.createChooser(intent, "Send message to. . ."))
+        }
     }
 
 

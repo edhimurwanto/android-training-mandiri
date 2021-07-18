@@ -23,6 +23,9 @@ class SecondActivity : AppCompatActivity() {
         btnBack.setOnClickListener {
             finish()
         }
+
+        val nameFromMainActivity = intent.getStringExtra("NAME")
+        textView.text = "$nameFromMainActivity Welcome to Second Activity"
     }
 
     override fun onStart() {

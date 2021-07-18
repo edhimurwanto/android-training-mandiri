@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnGoToSecondActivity.setOnClickListener {
-            startActivity(Intent(this, SecondActivity::class.java))
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("NAME", editTextName.text.toString())
+            startActivity(intent)
         }
     }
 
