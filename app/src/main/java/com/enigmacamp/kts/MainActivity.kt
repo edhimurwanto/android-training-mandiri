@@ -15,22 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate()")
 
-        tvTitle.text = "This is Main Activity"
-
-        showBtn.setOnClickListener {
-            showName()
-        }
-
-        btnGoToSecondActivity.setOnClickListener {
-            val intent = Intent(this, SecondActivity::class.java)
-            intent.putExtra("NAME", editTextName.text.toString())
-            startActivity(intent)
-        }
     }
 
-    fun showName(){
-        name.text = editTextName.text
-    }
 
     override fun onStart() {
         super.onStart()
