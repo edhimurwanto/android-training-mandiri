@@ -5,11 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_counter.*
+import kotlinx.android.synthetic.main.fragment_show_counter.*
 
-class CounterFragment : Fragment() {
-
-
+class ShowCounterFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,20 +18,11 @@ class CounterFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_counter, container, false)
+        return inflater.inflate(R.layout.fragment_show_counter, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    fun updateCounter(){
         val parent = activity as MainActivity
-
-        buttonIncrease.setOnClickListener {
-            parent.handleIncrement()
-        }
-
-        buttonDecrease.setOnClickListener {
-            parent.handleDecrement()
-        }
+        textViewCounter.text = parent.counter.toString()
     }
-
 }
