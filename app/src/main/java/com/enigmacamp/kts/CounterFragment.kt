@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_counter.*
 
-class CounterFragment : Fragment() {
-
-
+class CounterFragment(var counterHandler: CounterHandler? = null) : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,14 +23,13 @@ class CounterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val parent = activity as MainActivity
 
         buttonIncrease.setOnClickListener {
-            parent.handleIncrement()
+            counterHandler?.handleIncrement()
         }
 
         buttonDecrease.setOnClickListener {
-            parent.handleDecrement()
+            counterHandler?.handleDecrement()
         }
     }
 

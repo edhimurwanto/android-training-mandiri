@@ -21,8 +21,7 @@ class ShowCounterFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_show_counter, container, false)
     }
 
-    fun updateCounter(){
-        val parent = activity as MainActivity
-        textViewCounter.text = parent.counter.toString()
+    fun updateCounter(counter: Int){
+        textViewCounter.text = counter.toString()
     }
 }
