@@ -25,13 +25,13 @@ class SecondActivity : AppCompatActivity(), CounterHandler {
         fragmentTransaction.commit()
     }
 
-    override fun handleIncrement(counter: Int){
+    override fun handleIncrement(){
         this.counter++
         Log.d(TAG, this.counter.toString())
         showCounterFragment.updateCounter(this.counter)
     }
 
-    override fun handleDecrement(counter: Int){
+    override fun handleDecrement(){
         this.counter--
         Log.d(TAG, this.counter.toString())
         showCounterFragment.updateCounter(this.counter)
