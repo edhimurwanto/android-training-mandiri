@@ -3,6 +3,7 @@ package com.enigmacamp.kts
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import androidx.fragment.app.FragmentTransaction
 import kotlinx.android.synthetic.main.activity_main.*
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity(), CounterHandler {
 
         showCounterFragment = ShowCounterFragment()
         val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(show_counter_fragment_container.id, showCounterFragment)
+        fragmentTransaction.replace(show_counter_fragment_container.id, showCounterFragment)
         fragmentTransaction.commit()
 
         btnGoToSecondActivity.setOnClickListener {
@@ -76,4 +77,15 @@ class MainActivity : AppCompatActivity(), CounterHandler {
         Log.d(TAG, "onDestroy()")
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("COUNTER", this.counter)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+            this.counter = savedInstanceState.getInt("COUNTER")
+            Log.d(TAG, this.counter.toString())
+            showCounterFragment.updateCounter(this.counter)
+    }
 }
