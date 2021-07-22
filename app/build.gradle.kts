@@ -43,6 +43,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlinVersion}")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
     implementation("androidx.legacy:legacy-support-v4:1.0.0")
+    implementation("androidx.fragment:fragment-ktx:1.4.0-alpha04")
+
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")

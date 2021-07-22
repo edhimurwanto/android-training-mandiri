@@ -1,10 +1,13 @@
 package com.enigmacamp.kts
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResultListener
 import kotlinx.android.synthetic.main.fragment_show_counter.*
 
 class ShowCounterFragment : Fragment() {
@@ -23,5 +26,16 @@ class ShowCounterFragment : Fragment() {
 
     fun updateCounter(counter: Int){
         textViewCounter.text = counter.toString()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setFragmentResultListener("COUNTER") { key, result->
+            val counterResult = result.getInt("counter")
+            Log.d("COUNTER", counterResult.toString())
+            updateCounter(counterResult)
+        }
+
     }
 }

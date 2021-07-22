@@ -21,7 +21,7 @@ class SecondActivity : AppCompatActivity(), CounterHandler {
 
         showCounterFragment = ShowCounterFragment()
         val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(show_counter_fragment_container.id, showCounterFragment)
+        fragmentTransaction.add(counter_fragment_container.id, showCounterFragment)
         fragmentTransaction.commit()
     }
 

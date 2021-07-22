@@ -1,11 +1,15 @@
 package com.enigmacamp.kts
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import kotlinx.android.synthetic.main.fragment_counter.*
+import androidx.fragment.app.setFragmentResult
+import androidx.fragment.app.setFragmentResultListener
 
 class CounterFragment(var counterHandler: CounterHandler? = null) : Fragment() {
 
@@ -31,6 +35,11 @@ class CounterFragment(var counterHandler: CounterHandler? = null) : Fragment() {
         buttonDecrease.setOnClickListener {
             counterHandler?.handleDecrement()
         }
+    }
+
+    fun setResult(counter: Int){
+        Log.d("COUNTER", "Di SET $counter")
+        setFragmentResult("COUNTER", bundleOf("counter" to counter))
     }
 
 }
